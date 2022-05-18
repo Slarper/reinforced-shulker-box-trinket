@@ -16,6 +16,47 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
+	mavenLocal()
+
+	// Reinforced Core
+	maven {
+		url "https://raw.githubusercontent.com/Aton-Kish/mcmod/maven"
+	}
+
+	// Quick Shulker
+	maven {
+		url "https://maven.kyrptonaught.dev"
+	}
+
+	// Shulker Box Tooltip
+	maven {
+		url "https://maven.misterpemodder.com/libs-release"
+	}
+
+	// Mod Menu (Shulker Box Tooltip deps)
+	maven {
+		url "https://maven.terraformersmc.com/releases/"
+	}
+
+	// Cloth Config (Shulker Box Tooltip deps)
+	maven {
+		url "https://maven.shedaniel.me"
+	}
+
+	// Fabric ASM (Shulker Box Tooltip deps)
+	maven {
+		url "https://jitpack.io"
+	}
+
+	// Trinkets
+	maven {
+		name = "TerraformersMC"
+		url = "https://maven.terraformersmc.com/"
+	}
+	maven {
+		name = "Ladysnake Libs"
+		url = "https://ladysnake.jfrog.io/artifactory/mods"
+	}
 }
 
 dependencies {
@@ -26,6 +67,22 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modImplementation "atonkish.reinfshulker:reinforced-shulker-boxes:${project.reinforced_shulker_boxes_version}"
+
+	// Reinforced Core
+	modImplementation "atonkish.reinfcore:reinforced-core:${project.reinforced_core_version}"
+	include "atonkish.reinfcore:reinforced-core:${project.reinforced_core_version}"
+
+	// Reinforced Chests
+	modImplementation "atonkish.reinfchest:reinforced-chests:${project.reinforced_chests_version}"
+
+	// Quick Shulker
+	modImplementation "net.kyrptonaught:quickshulker:${project.quick_shulker_version}"
+
+	// Shulker Box Tooltip
+	modImplementation "com.misterpemodder:shulkerboxtooltip:${project.shulker_box_tooltip_version}"
+
+	modImplementation "dev.emi:trinkets:${trinkets_version}"
 }
 
 processResources {
