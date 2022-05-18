@@ -107,7 +107,7 @@ public class ShulkerTrinketInventory implements Inventory, NamedScreenHandlerFac
     @Override
     public void onOpen(PlayerEntity player) {
         if (!player.isSpectator()) {
-            NbtCompound tag = this.stack.getSubNbt("BlockEntityTag");
+            NbtCompound tag = this.stack.getOrCreateSubNbt("BlockEntityTag");
 
             if (tag != null) {
                 if (tag.contains("LootTable", 8)) {
